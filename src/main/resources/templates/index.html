@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>simple-api-client-sample</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<form th:action="@{/tweet}" method="post">
+    <input type="text" name="text"/>
+    <input type="submit" value="つぶやく"/>
+</form>
+<div th:each="status : ${statuses}">
+    (<span style="font-size: small;" th:text="${status.timestamp}">2015-10-20T12:34:56</span>)
+    <b th:text="${status.userId}">ほげくん</b>:
+    <span th:text="${status.text}">やあ！ほげくんだよ！！</span>
+</div>
+</body>
+</html>
