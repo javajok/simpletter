@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.2.6.RELEASE'
+        springBootVersion = '1.2.7.RELEASE'
     }
     repositories {
         jcenter()
@@ -25,6 +25,6 @@ repositories {
 }
 
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
-    compile "org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-starter-thymeleaf"
 }
