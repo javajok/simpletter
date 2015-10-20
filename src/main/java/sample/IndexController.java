@@ -45,7 +45,8 @@ public class IndexController {
         map.add("userId", userId);
         map.add("text", text);
 
-        new RestTemplate().postForObject(apiUrl + "/post", map, String.class);
+        String tweet = new RestTemplate().postForObject(apiUrl + "/post", map, String.class);
+        logger.info(tweet);
         return "redirect:/";
     }
 }
