@@ -5,6 +5,9 @@
     <meta charset="UTF-8"/>
 </head>
 <body>
+<div>
+    <a href="#" th:href="${@environment.getProperty('sample.api.url') + '/signup'}">アカウントを作成する</a>
+</div>
 <form th:action="@{/tweet}" method="post">
     <input type="text" name="text"/>
     <input type="submit" value="つぶやく"/>
