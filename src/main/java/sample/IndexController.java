@@ -29,9 +29,9 @@ public class IndexController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
-        Status[] statuses = new RestTemplate()
-                .getForObject(apiUrl + "/timeline", Status[].class);
-        model.addAttribute("statuses", Arrays.asList(statuses));
+        Timeline timeline = new RestTemplate()
+                .getForObject(apiUrl + "/timeline", Timeline.class);
+        model.addAttribute("statuses", timeline.tweets);
         return "index";
     }
 
