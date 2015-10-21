@@ -7,9 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
@@ -48,5 +46,11 @@ public class IndexController {
         Status status = new RestTemplate().postForObject(apiUrl + "/post", map, Status.class);
         logger.info(status.toString());
         return "redirect:/";
+    }
+
+    @RequestMapping("icon/{userId}")
+    @ResponseBody
+    public byte[] icon(@PathVariable("userId") String userId) {
+        return new RestTemplate().getForObject(apiUrl + "/icon/" + userId, byte[].class);
     }
 }
