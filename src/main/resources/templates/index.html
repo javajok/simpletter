@@ -43,7 +43,7 @@
 <div class="status" th:each="status : ${statuses}">
     <img src="../sample.png" th:src="@{'/icon/' + ${status.userId}}"/>
 
-    <div><b th:text="${status.userId}">ほげくん</b>: </div>
+    <div><b th:text="${status.userId}">ほげくん</b>:</div>
     <span th:text="${status.text}">やあ！ほげくんだよ！！</span>
 
     <div class="time" th:text="(${status.timestamp})">(2015-10-20T12:34:56)</div>
