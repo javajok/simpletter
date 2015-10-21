@@ -29,7 +29,7 @@ public class IndexController {
     public String index(Model model) {
         Timeline timeline = new RestTemplate()
                 .getForObject(apiUrl + "/timeline", Timeline.class);
-        model.addAttribute("statuses", timeline.tweets);
+        model.addAttribute(timeline);
         return "index";
     }
 
@@ -41,8 +41,8 @@ public class IndexController {
         map.add("userId", userId);
         map.add("text", text);
 
-        Status status = new RestTemplate().postForObject(apiUrl + "/post", map, Status.class);
-        logger.info(status.toString());
+        Tweet tweet = new RestTemplate().postForObject(apiUrl + "/post", map, Tweet.class);
+        logger.info(tweet.toString());
         return "redirect:/";
     }
 

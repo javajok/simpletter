@@ -11,7 +11,7 @@
         margin: 0 auto;
         width: 40%;
         }
-        .status {
+        .tweet {
         margin: 10px auto;
         width: 40%;
         padding: 10px;
@@ -20,7 +20,7 @@
         border-top: 1px dashed #000;
         border-bottom: 1px dashed #000;
         }
-        .status > img {
+        .tweet > img {
         float:left;
         margin-right: 10px;
         width: 100px;
@@ -40,13 +40,13 @@
     <input type="text" name="text"/>
     <input type="submit" value="つぶやく"/>
 </form>
-<div class="status" th:each="status : ${statuses}">
-    <img src="../sample.png" th:src="@{'/icon/' + ${status.userId}}"/>
+<div class="tweet" th:each="tweet : ${timeline.tweets}">
+    <img src="../sample.png" th:src="@{'/icon/' + ${tweet.userId}}"/>
 
-    <div><b th:text="${status.userId}">ほげくん</b>:</div>
-    <span th:text="${status.text}">やあ！ほげくんだよ！！</span>
+    <div><b th:text="${tweet.userId}">ほげくん</b>:</div>
+    <span th:text="${tweet.text}">やあ！ほげくんだよ！！</span>
 
-    <div class="time" th:text="(${status.timestamp})">(2015-10-20T12:34:56)</div>
+    <div class="time" th:text="(${tweet.timestamp})">(2015-10-20T12:34:56)</div>
     <br style="clear:both"/>
 </div>
 </body>

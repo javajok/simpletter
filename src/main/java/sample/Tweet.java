@@ -3,7 +3,7 @@ package sample;
 /**
  * @author irof
  */
-public class Status {
+public class Tweet {
 
     public String id;
     public String text;
@@ -12,7 +12,7 @@ public class Status {
 
     @Override
     public String toString() {
-        return "Status{" +
+        return "Tweet{" +
                 "id='" + id + '\'' +
                 ", text='" + text + '\'' +
                 ", timestamp='" + timestamp + '\'' +

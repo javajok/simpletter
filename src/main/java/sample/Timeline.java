@@ -7,5 +7,5 @@ import java.util.List;
  */
 public class Timeline {
 
-    public List<Status> tweets;
+    public List<Tweet> tweets;
 }
