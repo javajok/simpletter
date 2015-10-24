@@ -34,14 +34,14 @@ public class IndexController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String post(@RequestParam String text) {
-        logger.info("post text: {}", text);
+    public String tweet(@RequestParam String text) {
+        logger.info("tweet text: {}", text);
 
         MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
         map.add("userId", userId);
         map.add("text", text);
 
-        Tweet tweet = new RestTemplate().postForObject(apiUrl + "/post", map, Tweet.class);
+        Tweet tweet = new RestTemplate().postForObject(apiUrl + "/tweet", map, Tweet.class);
         logger.info(tweet.toString());
         return "redirect:/";
     }
