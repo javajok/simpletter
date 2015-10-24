@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>なんかエラーがおこりました</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<h1>なんかエラーがおこりました</h1>
+
+<p>こういうことはよくあるので、あわてる必要はありません。<a href="/">とりあえず戻って</a>考えてもいいかも。</p>
+
+<p>戻ってもここに来る？だとしたら何か壊れちゃってるかも。</p>
+
+<ul>
+    <li>なんかミスした気がする→ここ5分でやったことを思い返してみよう。</li>
+    <li>問題ないはず→スタックトレースを見てみよう。わからない？大丈夫、そんなものです。</li>
+    <li>意味がわからない→適当に助けを呼んでみよう。</li>
+</ul>
+
+<div>
+    <h2>一応出しとくスタックトレース</h2>
+
+    <p th:text="${exception}"></p>
+    <pre>
+    <span th:each="stack : ${exception.stackTrace}" th:text="${stack}"></span>
+    </pre>
+</div>
+</body>
+</html>
