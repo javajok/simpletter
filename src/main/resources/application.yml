@@ -1,5 +1,5 @@
 server:
-    port: 8090
+    port: 8080
 sample:
     userId: hogekun
-    api.url: http://localhost:8080
+    api.url: http://localhost:8090
