@@ -1,4 +1,4 @@
-package sample;
+package javajok.sample;
 
 import java.util.List;
 

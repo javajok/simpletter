@@ -1,16 +1,16 @@
 # CLIENT Sample
 
-https://github.com/backpaper0/simple-api-sample のクライアントさんです。
+https://github.com/backpaper0/simple-api-javajok のクライアントさんです。
 
 ## 設定
 
 通信先のサーバーと、このクライアントで使用するアカウントの設定です。
 `application.yml` に書いてるので、必要に応じて上書きしてね。
 
-* `sample.api.url`
+* `javajok.api.url`
   * サーバーのURLになります。
   * サーバーをローカルでそのまま起動した場合は変更いらないです。
-* `sample.userId`
+* `javajok.userId`
   * ツイートに使用されるユーザーIDです。
   * 設定した値はサーバーで登録してやってください。
   * 登録されていないユーザーIDで投稿しても、しれっと無視されます。
@@ -23,14 +23,14 @@ gradlew bootRun
 
 サーバーを起動させてから、以下のアドレスを開いてください。
 
-Browse http://localhost:8090
+Browse http://localhost:8090/sample
 
 タイムライン表示も投稿も全部この画面です。
-投稿はユーザーID固定です。 `sample.userId` のユーザーをサーバー側で登録してやってください。
+投稿はユーザーID固定です。 `javajok.userId` のユーザーをサーバー側で登録してやってください。
 
 ## メモ
 
-この子は `${sample.api.url}/timeline` を表示するのが主な仕事です。
+この子は `${javajok.api.url}/timeline` を表示するのが主な仕事です。
 結果は以下の形で返ってくることを想定しています。
 
 ```

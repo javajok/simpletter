@@ -1,4 +1,4 @@
-package sample;
+package javajok.sample;
 
 /**
  * @author irof

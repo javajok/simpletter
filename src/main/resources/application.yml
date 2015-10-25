@@ -1,5 +1,5 @@
 server:
     port: 8080
-sample:
+javajok:
     userId: hogekun
     api.url: http://localhost:8090

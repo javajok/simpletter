@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>simple-api-client-sample</title>
+    <title>simple-api-client-javajok</title>
     <meta charset="UTF-8"/>
     <style type="text/css">
         nav {
@@ -34,14 +34,14 @@
 </head>
 <body>
 <nav>
-    <a href="#" th:href="${@environment.getProperty('sample.api.url') + '/signup'}">アカウントを作成する</a>
+    <a href="#" th:href="${@environment.getProperty('javajok.api.url') + '/signup'}">アカウントを作成する</a>
 </nav>
-<form th:action="@{/tweet}" method="post">
+<form th:action="@{/sample}" method="post">
     <input type="text" name="text"/>
     <input type="submit" value="つぶやく"/>
 </form>
 <div class="tweet" th:each="tweet : ${timeline.tweets}">
-    <img src="../sample.png" th:src="@{'/icon/' + ${tweet.userId}}"/>
+    <img src="../javajok.png" th:src="@{'/sample/icon/' + ${tweet.userId}}"/>
 
     <div><b th:text="${tweet.userId}">ほげくん</b>:</div>
     <span th:text="${tweet.text}">やあ！ほげくんだよ！！</span>

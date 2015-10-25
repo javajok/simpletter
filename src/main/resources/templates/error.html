@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <title>なんかエラーがおこりました</title>
     <meta charset="UTF-8"/>
@@ -16,14 +16,5 @@
     <li>問題ないはず→スタックトレースを見てみよう。わからない？大丈夫、そんなものです。</li>
     <li>意味がわからない→適当に助けを呼んでみよう。</li>
 </ul>
-
-<div>
-    <h2>一応出しとくスタックトレース</h2>
-
-    <p th:text="${exception}"></p>
-    <pre>
-    <span th:each="stack : ${exception.stackTrace}" th:text="${stack}"></span>
-    </pre>
-</div>
 </body>
 </html>

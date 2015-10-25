@@ -1,4 +1,4 @@
-package sample;
+package javajok.sample;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,23 +14,23 @@ import org.springframework.web.client.RestTemplate;
  * @author irof
  */
 @Controller
-public class IndexController {
+@RequestMapping("sample")
+public class TweetController {
 
-    private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
+    private static final Logger logger = LoggerFactory.getLogger(TweetController.class);
 
-    @Value("${sample.api.url}")
+    @Value("${javajok.api.url}")
     String apiUrl;
 
-    @Value("${sample.userId}")
+    @Value("${javajok.userId}")
     String userId;
-
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
         Timeline timeline = new RestTemplate()
                 .getForObject(apiUrl + "/timeline", Timeline.class);
         model.addAttribute(timeline);
-        return "index";
+        return "sample";
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -43,7 +43,7 @@ public class IndexController {
 
         Tweet tweet = new RestTemplate().postForObject(apiUrl + "/tweet", map, Tweet.class);
         logger.info(tweet.toString());
-        return "redirect:/";
+        return "redirect:sample";
     }
 
     @RequestMapping("icon/{userId}")
