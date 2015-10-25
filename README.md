@@ -40,3 +40,7 @@ Browse http://localhost:8090
 レスポンスは `Timeline<Tweet>` にマッピングします。
 コードを単純にするために、クラス名/フィールド名とjsonやhtmlを直接あてていますので、変更するときは一緒にしなきゃです。
 
+## ライセンス
+
+[Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt)
+
