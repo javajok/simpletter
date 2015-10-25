@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ようこそ</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<section>
+    <h1>こんにちは！</h1>
+    このページが見えているということは、あなたの環境は正常に動作しています。<br/>
+    <a href="#" th:href="@{/sample}">サンプルを動かしてみても</a>良いかもしれません。
+</section>
+
+<section>
+    <h2>設定情報</h2>
+    この設定は状況に合わせて変更してください。<br/>
+    "API Server URL" は、用意されているアドレスを設定します。<br/>
+    "User ID" は、あなたがこのワークショップで使用するユーザーIDを設定します。API Serverで登録したUser IDを指定してください。
+    <table border="1" width="500">
+        <tr>
+            <th>API Server URL</th>
+            <td th:text="${@environment.getProperty('javajok.api.url')}">locahost</td>
+        </tr>
+        <tr>
+            <th>User ID</th>
+            <td th:text="${@environment.getProperty('javajok.userId')}">hogehoge</td>
+        </tr>
+    </table>
+</section>
+
+</body>
+</html>
