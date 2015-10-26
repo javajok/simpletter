@@ -25,12 +25,19 @@ public class TweetController {
     @Value("${javajok.userId}")
     String userId;
 
+    /**
+     * タイムラインを表示する子です。
+     * APIの "/timeline" を呼び出して、取得できた {@link Timeline} を設定してテンプレートを表示させます。
+     *
+     * @param model テンプレートが表示するときに使う情報の設定先
+     * @return 表示するテンプレート
+     */
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
         Timeline timeline = new RestTemplate()
                 .getForObject(apiUrl + "/timeline", Timeline.class);
         model.addAttribute(timeline);
-        return "sample";
+        return "sample/timeline";
     }
 
     @RequestMapping(method = RequestMethod.POST)
