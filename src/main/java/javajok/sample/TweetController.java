@@ -19,20 +19,31 @@ public class TweetController {
 
     private static final Logger logger = LoggerFactory.getLogger(TweetController.class);
 
+    /**
+     * このアプリの通信先となるAPIのURLです。
+     * 値は src/main/resources/application.yml に記述されています。
+     * 起動時引数で <code>-Djavajok.api.url=http://hogedriven.net/simpletter</code> などを指定すると上書きできます。
+     * 今回は変更が必要な場合は application.yml を編集しちゃってください。
+     */
     @Value("${javajok.api.url}")
     String apiUrl;
 
+    /**
+     * このアプリで使用するユーザーIDです。
+     * 値の設定については apiUrl と同じです。
+     * 設定されているユーザーIDがAPIサーバーにない場合、APIサーバー側で登録を行ってください。
+     */
     @Value("${javajok.userId}")
     String userId;
 
     /**
-     * タイムラインを表示する子です。ブラウザで "/sample" にアクセスするとこの子が動きます。
+     * タイムラインを表示する子です。ブラウザで "/sample" を表示すると動きます。
      *
      * @param model テンプレートが表示するときに使う情報の設定先
      * @return 表示するテンプレート
      */
     @RequestMapping(method = RequestMethod.GET)
-    public String index(Model model) {
+    public String timeline(Model model) {
 
         // 次の文で、API の "/timeline" を呼び出して、結果を Timeline として受け取っています。
         //
@@ -65,16 +76,33 @@ public class TweetController {
         return "sample/timeline";
     }
 
+    /**
+     * つぶやきを受け取る子です。ブラウザからつぶやくボタンを押したら動きます。
+     *
+     * @param text つぶやく内容
+     * @return 処理後にやること
+     */
     @RequestMapping(method = RequestMethod.POST)
     public String tweet(@RequestParam String text) {
+        // つぶやく内容をログに出力します。
         logger.info("tweet text: {}", text);
 
+        // "/tweet" のAPIが userId, text のフォームデータを欲しがっているので、組み立てます。
+        // このアプリはユーザーID固定なので、フィールドの userId を設定します。
         MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
         map.add("userId", userId);
         map.add("text", text);
 
+        // 次の文で、APIの "/tweet" につぶやき内容を渡しています。
+        // APIの中でどう処理されるかはAPIにお任せします。（多分何かしらの形で保存されるのでしょう）
+        // どうやら "/tweet" はつぶやいた内容を返すようなので、受け取っておきます。
         Tweet tweet = new RestTemplate().postForObject(apiUrl + "/tweet", map, Tweet.class);
-        logger.info(tweet.toString());
+
+        // せっかく受け取ったので、つぶやいた内容をログに出力しておきます。
+        logger.info("tweet success!!: {}", tweet);
+
+        // "/sample" にリダイレクトします。
+        // マッピングされている #timeline() が動いて、タイムラインが再表示されます。
         return "redirect:sample";
     }
 
