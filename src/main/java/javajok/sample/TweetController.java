@@ -26,17 +26,42 @@ public class TweetController {
     String userId;
 
     /**
-     * タイムラインを表示する子です。
-     * APIの "/timeline" を呼び出して、取得できた {@link Timeline} を設定してテンプレートを表示させます。
+     * タイムラインを表示する子です。ブラウザで "/sample" にアクセスするとこの子が動きます。
      *
      * @param model テンプレートが表示するときに使う情報の設定先
      * @return 表示するテンプレート
      */
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
+
+        // 次の文で、API の "/timeline" を呼び出して、結果を Timeline として受け取っています。
+        //
+        // （説明）
+        // RestTemplateクラスは、前述の処理をまとめてくれている便利なクラスです。
+        // Springでは、同じように便利クラスの XxxTemplate が用途別に用意されているので、興味があれば調べてみてください。
+        // RestTemplateは主に (1)HTTPによる送受信 と (2)メッセージのバインディング の二つの仕事をします。
+        // (1) HTTPの送受信はSpringのHttpClientRequestを使用してHTTPの送受信を行っていますが、
+        //     ここはあまり気にしなくても良いです。通信に手を加えたいときは見てあげてください。
+        // (2) メッセージのバインディングには、JSONライブラリのJacksonを使用しています。
+        //     メッセージの変換に手を加えたくなった場合は、Jacksonを調べると良いでしょう。
         Timeline timeline = new RestTemplate()
                 .getForObject(apiUrl + "/timeline", Timeline.class);
+
+        // 取得した Timeline を画面に表示するために、Modelに預けます。
+        //
+        // （説明）
+        // ModelはSpringMVCが用意しているクラスで、Controller（このクラス）と
+        // テンプレート（ここではhtml）の橋渡しをしてくれます。
+        // addAttributeメソッドはオーバーロードされていますが、ここで使用している引数が一つのものは、
+        // 引数が二つのものの省略形で、渡したインスタンスのクラスを見て属性名を勝手につけてくれます。
+        // つまり、以下の文は model.addAttribute("timeline", timeline); と同等です。
         model.addAttribute(timeline);
+
+        // 処理が終わった際に遷移するテンプレートを指定します。
+        // 以下の指定で "templates/sample/timeline.html" が表示されることになります。
+        // このサンプルではテンプレートエンジンに Thymeleaf を使用しています。
+        // 使っているものによってテンプレートファイルの置き場所やファイル名などは変わってきますが、
+        // Controllerの実装に大きな差はないように作られています。
         return "sample/timeline";
     }
 
