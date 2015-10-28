@@ -1,6 +1,6 @@
 # CLIENT Sample
 
-https://github.com/backpaper0/simple-api-javajok のクライアントさんです。
+https://github.com/javajok/simple-api-sample のクライアントさんです。
 
 ## 設定
 
