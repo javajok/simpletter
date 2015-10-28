@@ -37,6 +37,7 @@
     <a href="#" th:href="${@environment.getProperty('javajok.api.url') + '/signup'}">アカウントを作成する</a>
 </nav>
 <form th:action="@{/sample}" method="post">
+    <b th:text="${@environment.getProperty('javajok.userId')}">ほげくん</b>:
     <input type="text" name="text"/>
     <input type="submit" value="つぶやく"/>
 </form>
