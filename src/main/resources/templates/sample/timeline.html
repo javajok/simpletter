@@ -3,52 +3,55 @@
 <head>
     <title>しんぷれったー（さんぷる）</title>
     <meta charset="UTF-8"/>
-    <style type="text/css">
-        nav {
-        text-align: right;
-        }
-        form {
-        margin: 0 auto;
-        width: 40%;
-        }
-        .tweet {
-        margin: 10px auto;
-        width: 40%;
-        padding: 10px;
-        border-right: 1px solid #000;
-        border-left: 1px solid #000;
-        border-top: 1px dashed #000;
-        border-bottom: 1px dashed #000;
-        }
-        .tweet > img {
-        float:left;
-        margin-right: 10px;
-        width: 100px;
-        height: 100px;
-        }
-        .time {
-        text-align:right;
-        font-size: small;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-<nav>
-    <a href="#" th:href="${@environment.getProperty('javajok.api.url') + '/signup'}">アカウントを作成する</a>
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="collapse navbar-collapse">
+            <a href="../" class="navbar-text"><span class="glyphicon glyphicon-home"></span>もどります</a>
+            <a href="#" class="navbar-text navbar-right"
+               th:href="${@environment.getProperty('javajok.api.url') + '/signup'}">アカウントを作成する</a>
+        </div>
+    </div>
 </nav>
-<form th:action="@{/sample}" method="post">
-    <b th:text="${@environment.getProperty('javajok.userId')}">ほげくん</b>:
-    <input type="text" name="text"/>
-    <input type="submit" value="つぶやく"/>
-</form>
-<div class="tweet" th:each="tweet : ${timeline.tweets}">
-    <img src="../javajok.png" th:src="@{'/sample/icon/' + ${tweet.userId}}"/>
+<div class="container">
+    <div class="page-header">
+        <h1>さんぷるです</h1>
+    </div>
 
-    <div><b th:text="${tweet.userId}">ほげくん</b>:</div>
-    <span th:text="${tweet.text}">やあ！ほげくんだよ！！</span>
+    <form th:action="@{/sample}" method="post" class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-2" th:text="${@environment.getProperty('javajok.userId')}">ほげくん</label>
 
-    <div class="time" th:text="(${tweet.timestamp})">(2015-10-20T12:34:56)</div>
-    <br style="clear:both"/>
+            <div class="col-md-8">
+                <input type="text" class="form-control" name="text"/>
+            </div>
+            <div class="col-md-2">
+                <input type="submit" class="btn btn-primary" value="つぶやく"/>
+            </div>
+        </div>
+    </form>
+
+    <div class="tweet panel panel-info" th:each="tweet : ${timeline.tweets}">
+        <div class="panel-heading">
+            <h3 class="panel-title" th:text="${tweet.userId}">ほげくん</h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-1">
+                <img src="../javajok.png" width="50" height="50" th:src="@{'/sample/icon/' + ${tweet.userId}}"/>
+            </div>
+            <div class="col-md-11">
+                <span th:text="${tweet.text}">やあ！ほげくんだよ！！</span>
+            </div>
+            <div class="text-right">
+                <span class="label label-info" th:text="${tweet.timestamp}">2015-10-20T12:34:56</span>
+            </div>
+        </div>
+    </div>
+
 </div>
+
 </body>
 </html>
