@@ -1,6 +1,8 @@
 package javajok.sample;
 
 /**
+ * 一件のツイートです。
+ *
  * @author irof
  */
 public class Tweet {

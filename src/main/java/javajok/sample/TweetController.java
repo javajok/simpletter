@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 /**
+ * 画面からのリクエストを処理してAPIサーバーと通信したり、遷移先を指定したりするコントローラーです。
+ *
  * @author irof
  */
 @Controller
