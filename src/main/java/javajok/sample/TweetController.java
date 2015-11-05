@@ -108,6 +108,14 @@ public class TweetController {
         return "redirect:sample";
     }
 
+    /**
+     * アイコン画像を返す子です。imgタグから呼ばれます。
+     *
+     * 直接APIサーバーのアイコンを参照しちゃうなら、この子は要りません。
+     *
+     * @param userId 欲しいアイコンのユーザーID
+     * @return 画像データ
+     */
     @RequestMapping("icon/{userId}")
     @ResponseBody
     public byte[] icon(@PathVariable("userId") String userId) {
