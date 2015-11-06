@@ -1,5 +1,9 @@
+
 server:
     port: 8080
 javajok:
     userId: hogekun
     api.url: http://localhost:8090
+spring:
+  thymeleaf:
+    cache: false
