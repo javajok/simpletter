@@ -3,98 +3,163 @@
 <head>
     <title>ようこそ</title>
     <meta charset="UTF-8"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
-<body>
+<body class="container">
 <section>
-    <h1>こんにちは！</h1>
-    このページが見えているということは、あなたの環境は正常に動作しています。<br/>
-    <a href="#" th:href="@{/sample}">サンプルを動かしてみても</a>良いかもしれません。
+    <div class="page-header">
+        <h1>こんにちは！</h1>
+    </div>
+
+    <div class="alert alert-info" role="alert">
+        このページが見えているということは、あなたの環境は正常に動作しています。<br/>
+        <a href="#" th:href="@{/sample}">サンプルを動かしてみても</a>良いかもしれません。
+    </div>
 </section>
 
 <section>
     <h1>ワークショップでやること</h1>
-    このワークショップは以下のステップで行います。
-    <ul>
+    ワークショップでは、以下の5ステップを行います。
+    <ol>
         <li>ハローワールド！</li>
         <li>ハローワールドを作ってみよう！</li>
         <li>APIを呼んでみよう！</li>
         <li>タイムラインを表示しよう！</li>
         <li>つぶやこう！</li>
-    </ul>
+    </ol>
 
-    <section>
-        <h2>ハローワールド！</h2>
-        このページを表示……できてますね！おめでとうございます！！
-    </section>
-    <section>
-        <h2>ハローワールドを作ってみよう！</h2>
-        決まった内容を表示するだけのシンプルなページを作成します。
-        HTMLで作成した画面に、あなたが設定した値を表示してみましょう。
+    <div class="col-md-11 col-md-offset-1">
+        <h2>やること と 学べること</h2>
         <section>
-            <h3>ここで学べること</h3>
-            <ul>
-                <li>Thymeleaf を使用したシンプルなページの作り方</li>
-                <li>Spring MVC を使用したシンプルなControllerの作り方</li>
-                <li>Spring を使用した設定値の取得方法</li>
-            </ul>
+            <h3>ハローワールド！</h3>
+            このページを表示……できてますね！おめでとうございます！！
+            <section>
+                <h4>ここで学べること</h4>
+                <ul>
+                    <li>Spring Bootアプリケーションの起動方法</li>
+                </ul>
+            </section>
+            <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                </div>
+            </div>
         </section>
-    </section>
-    <section>
-        <h2>APIを呼んでみよう！</h2>
-        簡単なAPI呼び出しを行います。
-        サーバーから取得した値を、画面に表示してみましょう。
         <section>
-            <h3>ここで学べること</h3>
-            <ul>
-                <li>RestTemplate を使用したAPIの呼び出し方</li>
-            </ul>
+            <h3>ハローワールドを作ってみよう！</h3>
+            決まった内容を表示するだけのシンプルなページを作成します。
+            HTMLで作成した画面に、あなたの名前を表示してみましょう。
+            <section>
+                <h4>ここで学べること</h4>
+                <ul>
+                    <li>Thymeleaf を使用したシンプルなページの作り方</li>
+                    <li>Spring MVC を使用したシンプルなControllerの作り方</li>
+                    <li>Spring を使用した設定値の取得方法</li>
+                </ul>
+            </section>
+            <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                </div>
+            </div>
         </section>
-    </section>
-    <section>
-        <h2>タイムラインを表示しよう！</h2>
-        いよいよタイムラインを取得します。
-        APIの呼び出し方は先ほどと同じですが、今回はAPIの結果をあなたが作るクラスのインスタンスに変換します。
-        また、タイムラインには複数件のツイートが入っています。
         <section>
-            <h3>ここで学べること</h3>
-            <ul>
-                <li>JSONから自分で作成したクラスへのマッピング</li>
-                <li>Thymeleafで複数件を扱う方法</li>
-                <li>Thymeleafでプロパティを扱う方法</li>
-            </ul>
+            <h3>APIを呼んでみよう！</h3>
+            簡単なAPI呼び出しを行います。
+            サーバーから取得した値を、画面に表示してみましょう。
+            <section>
+                <h4>ここで学べること</h4>
+                <ul>
+                    <li>RestTemplate を使用したAPIの呼び出し方</li>
+                </ul>
+            </section>
+            <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                </div>
+            </div>
         </section>
-    </section>
-    <section>
-        <h2>つぶやこう！</h2>
-        入力した言葉をつぶやけるようにしましょう。
-        API呼び出し時に、入力したメッセージも渡せばOKです。
-        この時、APIが受け取れる形で渡してあげなくてはいけません。
         <section>
-            <h3>ここで学べること</h3>
-            <ul>
-                <li>フォームの入力内容をControllerで受け取る方法</li>
-                <li>APIにパラメータを渡す方法</li>
-                <li>リダイレクト</li>
-            </ul>
+            <h3>タイムラインを表示しよう！</h3>
+            いよいよタイムラインを取得します。
+            APIの呼び出し方は先ほどと同じですが、今回はAPIの結果をあなたが作るクラスのインスタンスに変換します。
+            <section>
+                <h4>ここで学べること</h4>
+                <ul>
+                    <li>JSONから自分で作成したクラスへのマッピング</li>
+                    <li>Thymeleafで複数件を扱う方法</li>
+                    <li>Thymeleafでプロパティを扱う方法</li>
+                </ul>
+            </section>
+            <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                     aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                </div>
+            </div>
         </section>
+        <section>
+            <h3>つぶやこう！</h3>
+            入力した言葉をつぶやけるようにしましょう。
+            API呼び出し時に、入力したメッセージも渡せばOKです。
+            この時、APIが受け取れる形で渡してあげなくてはいけません。
+            <section>
+                <h4>ここで学べること</h4>
+                <ul>
+                    <li>フォームの入力内容をControllerで受け取る方法</li>
+                    <li>APIにパラメータを渡す方法</li>
+                    <li>リダイレクト</li>
+                </ul>
+            </section>
+            <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    以上で終了となります。お疲れ様でした。
+    <section>
+        <h2>この先の筋道</h2>
+        <ul>
+            <li>タイムラインにアイコンを表示してみる</li>
+            <li>エラーハンドリングをしてみる</li>
+            <li>一般に公開されているAPIを使ってみる</li>
+            <li>APIサーバーを実装してみる</li>
+            <li>他のフレームワークを使ってみる</li>
+            <li>etc...</li>
+        </ul>
     </section>
 </section>
 
-<section>
-    <h2>設定情報</h2>
-    この設定は状況に合わせて変更してください。<br/>
-    "API Server URL" は、用意されているアドレスを設定します。<br/>
-    "User ID" は、あなたがこのワークショップで使用するユーザーIDを設定します。API Serverで登録したUser IDを指定してください。
-    <table border="1" width="500">
-        <tr>
-            <th>API Server URL</th>
-            <td th:text="${@environment.getProperty('javajok.api.url')}">locahost</td>
-        </tr>
-        <tr>
-            <th>User ID</th>
-            <td th:text="${@environment.getProperty('javajok.userId')}">hogehoge</td>
-        </tr>
-    </table>
+<section class="panel panel-default">
+    <div class="panel-heading">
+        アプリケーションの設定情報
+    </div>
+    <div class="panel-body">
+        デバッグ用です。
+        <table class="table">
+            <thead>
+            <tr>
+                <th>項目名</th>
+                <th>現在設定されている値</th>
+                <th>説明</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>API Server URL</td>
+                <td th:text="${@environment.getProperty('javajok.api.url')}">locahost</td>
+                <td>APIサーバーのアドレスを設定してください</td>
+            </tr>
+            <tr>
+                <td>User ID</td>
+                <td th:text="${@environment.getProperty('javajok.userId')}">hogehoge</td>
+                <td>あなたの好きなユーザーIDを設定してください</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </section>
 
 </body>
