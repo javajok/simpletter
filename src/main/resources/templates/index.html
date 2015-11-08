@@ -23,8 +23,8 @@
     <ol>
         <li>ハローワールド！</li>
         <li>ハローワールドを作ってみよう！</li>
+        <li>ツイートを表示しよう！</li>
         <li>APIを呼んでみよう！</li>
-        <li>タイムラインを表示しよう！</li>
         <li>つぶやこう！</li>
     </ol>
 
@@ -50,12 +50,27 @@
             決まった内容を表示するだけのシンプルなページを作成します。
             HTMLで作成した画面に、あなたの名前を表示してみましょう。
             <section>
+                <h4>作成するもの</h4>
+                <ul>
+                    <li>src/main/java/javajok/work/HelloWorldController.java</li>
+                    <li>src/main/resources/templates/hello.html</li>
+                </ul>
+                <a href="/hello">できたらここを開いてください</a>
+            </section>
+            <section>
                 <h4>ここで学べること</h4>
                 <ul>
-                    <li>Thymeleaf を使用したシンプルなページの作り方</li>
                     <li>Spring MVC を使用したシンプルなControllerの作り方</li>
-                    <li>Spring を使用した設定値の取得方法</li>
+                    <li>Thymeleaf を使用したシンプルなページの作り方</li>
+                    <li>Thymeleaf で値を表示する方法</li>
                 </ul>
+            </section>
+            <section>
+                <h4>Snippet</h4>
+                Thymeleafを使う時のHTMLタグ
+                <pre>&lt;html xmlns:th="http://www.thymeleaf.org"&gt;</pre>
+                Thymeleafで値を表示する
+                <pre>&lt;span th:text="${name}"&gt;ここがnameの値に変わります&lt;/span&gt;</pre>
             </section>
             <div class="progress">
                 <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
@@ -64,14 +79,30 @@
             </div>
         </section>
         <section>
-            <h3>APIを呼んでみよう！</h3>
-            簡単なAPI呼び出しを行います。
-            サーバーから取得した値を、画面に表示してみましょう。
+            <h3>ツイートを表示しよう！</h3>
+            ハローワールド画面と同じように、ツイートを表示する画面を作ります。
+            ツイートクラスは自分で作っても良いですが、sampleのものをそのまま使用しても構いません。
+            ツイートが表示できたら、次はツイートのリスト表示してみましょう。
+            <section>
+                <h4>作成するもの</h4>
+                <ul>
+                    <li>src/main/java/javajok/work/TimelineController.java</li>
+                    <li>src/main/java/javajok/work/Tweet.java</li>
+                    <li>src/main/resources/templates/timeline.html</li>
+                </ul>
+                <a href="/timeline">できたらここを開いてください</a>
+            </section>
             <section>
                 <h4>ここで学べること</h4>
                 <ul>
-                    <li>RestTemplate を使用したAPIの呼び出し方</li>
+                    <li>Thymeleaf でプロパティを扱う方法</li>
+                    <li>Thymeleaf で複数件を扱う方法</li>
                 </ul>
+            </section>
+            <section>
+                <h4>Snippet</h4>
+                Thymeleafで複数件を扱う
+                <pre>&lt;p th:each="item : ${list}"&gt;...&lt;/p&gt;</pre>
             </section>
             <div class="progress">
                 <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
@@ -80,15 +111,21 @@
             </div>
         </section>
         <section>
-            <h3>タイムラインを表示しよう！</h3>
-            いよいよタイムラインを取得します。
-            APIの呼び出し方は先ほどと同じですが、今回はAPIの結果をあなたが作るクラスのインスタンスに変換します。
+            <h3>APIをよびだそう！</h3>
+            いよいよAPI呼び出しです。
+            サーバーから取得した値を画面に表示します。
+            <section>
+                <h4>作成するもの</h4>
+                <ul>
+                    <li>src/main/java/javajok/work/Timeline.java</li>
+                </ul>
+                <a href="/timeline">できたらここを開いてください</a>
+            </section>
             <section>
                 <h4>ここで学べること</h4>
                 <ul>
+                    <li>RestTemplate を使用したAPIの呼び出し方</li>
                     <li>JSONから自分で作成したクラスへのマッピング</li>
-                    <li>Thymeleafで複数件を扱う方法</li>
-                    <li>Thymeleafでプロパティを扱う方法</li>
                 </ul>
             </section>
             <div class="progress">
