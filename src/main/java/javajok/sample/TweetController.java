@@ -13,12 +13,19 @@ import org.springframework.web.client.RestTemplate;
 /**
  * 画面からのリクエストを処理してAPIサーバーと通信したり、遷移先を指定したりするコントローラーです。
  *
+ * Spring MVCにコントローラーであることを伝えるために<code>@Controller</code>を付与します。
+ * <code>@RequestMapping</code>は指定したパスにアクセスした時に動くようにする設定です。
+ * ここでは "/sample" を指定していますので、 http://localhost:8080/sample にアクセスするとこのクラスが呼び出されます。
+ *
  * @author irof
  */
 @Controller
-@RequestMapping("sample")
+@RequestMapping("/sample")
 public class TweetController {
 
+    /**
+     * ログを出力するためのライブラリの準備です。
+     */
     private static final Logger logger = LoggerFactory.getLogger(TweetController.class);
 
     /**
@@ -40,6 +47,9 @@ public class TweetController {
 
     /**
      * タイムラインを表示する子です。ブラウザで "/sample" を表示すると動きます。
+     * <code>@RequestMapping</code> のmethod属性にはHTTPメソッドを指定します。
+     * ブラウザでURLをアドレスバーに入れたり、Aタグのリンクなどで移動してきた場合はGETメソッドです。
+     * また、value属性を指定していないので、classに付与しているパスが使用されます。
      *
      * @param model テンプレートが表示するときに使う情報の設定先
      * @return 表示するテンプレート
@@ -111,12 +121,17 @@ public class TweetController {
     /**
      * アイコン画像を返す子です。imgタグから呼ばれます。
      *
-     * 直接APIサーバーのアイコンを参照しちゃうなら、この子は要りません。
+     * <code>@RequestMapping</code>のvalue属性が指定されているので、クラスに設定されている値に続けられます。
+     * つまり、 "/sample/icon/{userId}" と指定しているようなものです。
+     * value属性のカッコで括った部分は引数の<code>@PathVariable</code>で受け取れます。
+     *
+     * また、画像ファイルはテンプレートを使用せずに直接レスポンスに書き出します。
+     * この際は<code>@ResponseBody</code>を付与しています。
      *
      * @param userId 欲しいアイコンのユーザーID
      * @return 画像データ
      */
-    @RequestMapping("icon/{userId}")
+    @RequestMapping("/icon/{userId}")
     @ResponseBody
     public byte[] icon(@PathVariable("userId") String userId) {
         return new RestTemplate().getForObject(apiUrl + "/icon/" + userId, byte[].class);
