@@ -8,7 +8,9 @@
 <body class="container">
 <section>
     <div class="page-header">
-        <h1>こんにちは！</h1>
+        <h1>Javaでwebアプリケーション入門
+            <small>Twitter風webアプリを作ってみよう！</small>
+        </h1>
     </div>
 
     <div class="alert alert-info" role="alert">
@@ -18,146 +20,132 @@
 </section>
 
 <section>
-    <h1>ワークショップでやること</h1>
-    ワークショップでは、以下の5ステップを行います。
+    <p>本ワークショップでは、以下の順番でTwitter風のwebアプリケーションを作成します。</p>
     <ol>
-        <li>ハローワールド！</li>
+        <li>こんにちは！</li>
         <li>ハローワールドを作ってみよう！</li>
         <li>ツイートを表示しよう！</li>
         <li>APIを呼んでみよう！</li>
         <li>つぶやこう！</li>
     </ol>
 
-    <div class="col-md-11 col-md-offset-1">
-        <h2>やること と 学べること</h2>
-        <section>
-            <h3>ハローワールド！</h3>
-            このページを表示……できてますね！おめでとうございます！！
-            <section>
-                <h4>ここで学べること</h4>
-                <ul>
-                    <li>Spring Bootアプリケーションの起動方法</li>
-                </ul>
-            </section>
-            <div class="progress">
-                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                </div>
-            </div>
-        </section>
-        <section>
-            <h3>ハローワールドを作ってみよう！</h3>
-            決まった内容を表示するだけのシンプルなページを作成します。
-            HTMLで作成した画面に、あなたの名前を表示してみましょう。
-            <section>
-                <h4>作成するもの</h4>
-                <ul>
-                    <li>src/main/java/javajok/work/HelloWorldController.java</li>
-                    <li>src/main/resources/templates/hello.html</li>
-                </ul>
-                <a href="/hello">できたらここを開いてください</a>
-            </section>
-            <section>
-                <h4>ここで学べること</h4>
-                <ul>
-                    <li>Spring MVC を使用したシンプルなControllerの作り方</li>
-                    <li>Thymeleaf を使用したシンプルなページの作り方</li>
-                    <li>Thymeleaf で値を表示する方法</li>
-                </ul>
-            </section>
-            <section>
-                <h4>Snippet</h4>
-                Thymeleafを使う時のHTMLタグ
-                <pre>&lt;html xmlns:th="http://www.thymeleaf.org"&gt;</pre>
-                Thymeleafで値を表示する
-                <pre>&lt;span th:text="${name}"&gt;ここがnameの値に変わります&lt;/span&gt;</pre>
-            </section>
-            <div class="progress">
-                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                </div>
-            </div>
-        </section>
-        <section>
-            <h3>ツイートを表示しよう！</h3>
-            ハローワールド画面と同じように、ツイートを表示する画面を作ります。
-            ツイートクラスは自分で作っても良いですが、sampleのものをそのまま使用しても構いません。
-            ツイートが表示できたら、次はツイートのリスト表示してみましょう。
-            <section>
-                <h4>作成するもの</h4>
-                <ul>
-                    <li>src/main/java/javajok/work/TimelineController.java</li>
-                    <li>src/main/java/javajok/work/Tweet.java</li>
-                    <li>src/main/resources/templates/timeline.html</li>
-                </ul>
-                <a href="/timeline">できたらここを開いてください</a>
-            </section>
-            <section>
-                <h4>ここで学べること</h4>
-                <ul>
-                    <li>Thymeleaf でプロパティを扱う方法</li>
-                    <li>Thymeleaf で複数件を扱う方法</li>
-                </ul>
-            </section>
-            <section>
-                <h4>Snippet</h4>
-                Thymeleafで複数件を扱う
-                <pre>&lt;p th:each="item : ${list}"&gt;...&lt;/p&gt;</pre>
-            </section>
-            <div class="progress">
-                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                </div>
-            </div>
-        </section>
-        <section>
-            <h3>APIをよびだそう！</h3>
-            いよいよAPI呼び出しです。
-            サーバーから取得した値を画面に表示します。
-            <section>
-                <h4>作成するもの</h4>
-                <ul>
-                    <li>src/main/java/javajok/work/Timeline.java</li>
-                </ul>
-                <a href="/timeline">できたらここを開いてください</a>
-            </section>
-            <section>
-                <h4>ここで学べること</h4>
-                <ul>
-                    <li>RestTemplate を使用したAPIの呼び出し方</li>
-                    <li>JSONから自分で作成したクラスへのマッピング</li>
-                </ul>
-            </section>
-            <div class="progress">
-                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-                     aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                </div>
-            </div>
-        </section>
-        <section>
-            <h3>つぶやこう！</h3>
-            入力した言葉をつぶやけるようにしましょう。
-            API呼び出し時に、入力したメッセージも渡せばOKです。
-            この時、APIが受け取れる形で渡してあげなくてはいけません。
-            <section>
-                <h4>ここで学べること</h4>
-                <ul>
-                    <li>フォームの入力内容をControllerで受け取る方法</li>
-                    <li>APIにパラメータを渡す方法</li>
-                    <li>リダイレクト</li>
-                </ul>
-            </section>
-            <div class="progress">
-                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                </div>
-            </div>
-        </section>
-    </div>
-
-    以上で終了となります。お疲れ様でした。
     <section>
-        <h2>この先の筋道</h2>
+        <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> こんにちは！</h2>
+
+        <p>このページを表示……できてますね！おめでとうございます！！</p>
+
+        <p>
+            SpringBootというフレームワークを使用した、Webアプリケーションが起動できました。
+            このページもアプリケーションの一部だったりします。
+            本ワークショップは、このアプリケーションに機能を追加していく形で行います。
+        </p>
+    </section>
+    <hr/>
+    <section>
+        <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> ハローワールドを作ってみよう！</h2>
+
+        <p></p>
+        決まった内容を表示するだけのシンプルなページを作成します。
+        HTMLで作成した画面に、あなたの名前を表示してみましょう。
+        <section>
+            <h4>作成するもの</h4>
+            <ul>
+                <li>src/main/java/javajok/work/HelloWorldController.java</li>
+                <li>src/main/resources/templates/hello.html</li>
+            </ul>
+            <a href="/hello">できたらここを開いてください</a>
+        </section>
+        <section>
+            <h4>ここで学べること</h4>
+            <ul>
+                <li>Spring MVC を使用したシンプルなControllerの作り方</li>
+                <li>Thymeleaf を使用したシンプルなページの作り方</li>
+                <li>Thymeleaf で値を表示する方法</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Snippet</h4>
+            Thymeleafを使う時のHTMLタグ
+            <pre>&lt;html xmlns:th="http://www.thymeleaf.org"&gt;</pre>
+            Thymeleafで値を表示する
+            <pre>&lt;span th:text="${name}"&gt;ここがnameの値に変わります&lt;/span&gt;</pre>
+        </section>
+    </section>
+    <hr/>
+    <section>
+        <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> ツイートを表示しよう！</h2>
+        ハローワールド画面と同じように、ツイートを表示する画面を作ります。
+        ツイートクラスは自分で作っても良いですが、sampleのものをそのまま使用しても構いません。
+        ツイートが表示できたら、次はツイートのリスト表示してみましょう。
+        <section>
+            <h4>作成するもの</h4>
+            <ul>
+                <li>src/main/java/javajok/work/TimelineController.java</li>
+                <li>src/main/java/javajok/work/Tweet.java</li>
+                <li>src/main/resources/templates/timeline.html</li>
+            </ul>
+            <a href="/timeline">できたらここを開いてください</a>
+        </section>
+        <section>
+            <h4>ここで学べること</h4>
+            <ul>
+                <li>Thymeleaf でプロパティを扱う方法</li>
+                <li>Thymeleaf で複数件を扱う方法</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Snippet</h4>
+            Thymeleafで複数件を扱う
+            <pre>&lt;p th:each="item : ${list}"&gt;...&lt;/p&gt;</pre>
+        </section>
+    </section>
+    <hr/>
+    <section>
+        <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> APIをよびだそう！</h2>
+        いよいよAPI呼び出しです。
+        APIサーバーからタイムラインを取得して、画面に表示します。<br/>
+        APIサーバーからはJSONが返されます。<a href="#" th:href="${@environment.getProperty('javajok.api.url')} + '/timeline'">直接表示してみる</a>とイメージしやすいかもしれません。
+        <section>
+            <h4>作成するもの</h4>
+            <ul>
+                <li>src/main/java/javajok/work/Timeline.java</li>
+            </ul>
+            <a href="/timeline">できたらここを開いてください</a>
+        </section>
+        <section>
+            <h4>ここで学べること</h4>
+            <ul>
+                <li>RestTemplate を使用したAPIの呼び出し方</li>
+                <li>JSONから自分で作成したクラスへのマッピング</li>
+            </ul>
+        </section>
+    </section>
+    <hr/>
+    <section>
+        <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> つぶやこう！</h2>
+        入力した言葉をつぶやけるようにしましょう。
+        API呼び出し時に、入力したメッセージも渡せばOKです。
+        この時、APIが受け取れる形で渡してあげなくてはいけません。
+        <section>
+            <h4>ここで学べること</h4>
+            <ul>
+                <li>フォームの入力内容をControllerで受け取る方法</li>
+                <li>APIにパラメータを渡す方法</li>
+                <li>リダイレクト</li>
+            </ul>
+        </section>
+    </section>
+    <section class="panel panel-info">
+        <div class="panel-heading">
+            おつかれさまでした
+        </div>
+        <div class="panel-body">
+            以上でワークショップは終了です。
+        </div>
+    </section>
+
+    <section>
+        <h2><span class="glyphicon glyphicon-road" aria-hidden="true"></span> この先の筋道</h2>
         <ul>
             <li>タイムラインにアイコンを表示してみる</li>
             <li>エラーハンドリングをしてみる</li>
@@ -167,36 +155,6 @@
             <li>etc...</li>
         </ul>
     </section>
-</section>
-
-<section class="panel panel-default">
-    <div class="panel-heading">
-        アプリケーションの設定情報
-    </div>
-    <div class="panel-body">
-        デバッグ用です。
-        <table class="table">
-            <thead>
-            <tr>
-                <th>項目名</th>
-                <th>現在設定されている値</th>
-                <th>説明</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>API Server URL</td>
-                <td th:text="${@environment.getProperty('javajok.api.url')}">locahost</td>
-                <td>APIサーバーのアドレスを設定してください</td>
-            </tr>
-            <tr>
-                <td>User ID</td>
-                <td th:text="${@environment.getProperty('javajok.userId')}">hogehoge</td>
-                <td>あなたの好きなユーザーIDを設定してください</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
 </section>
 
 </body>
