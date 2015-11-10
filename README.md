@@ -2,7 +2,17 @@
 
 https://github.com/javajok/simpletter-api と通信することでTwitter風味な挙動をするwebアプリケーションです。
 
-## 設定
+## Eclipse への取り込み
+
+以下のコマンドを実行してください。
+
+```
+./gradlew eclipse
+```
+
+Eclipseの設定ファイルが作成され、プロジェクトのインポートができるようになります。
+
+## アプリケーションの設定
 
 通信先のAPIサーバーと、サンプルで使用するアカウントの設定です。
 `application.yml` に書いてるので、必要に応じて上書きしてね。
