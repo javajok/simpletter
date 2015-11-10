@@ -162,10 +162,9 @@
                 ThymeleafでURLを指定する
             </div>
             <div class="panel-body">
-                URLを指定する場合、絶対URLや相対URLで、それが変更されないのであればわざわざThymeleafを使用する必要はありません。通常のHTMLのように書いておけば良いです。
-                ですが、
-                <pre>&lt;form action :each="item : ${list}"&gt;...&lt;/p&gt;</pre>
-                th:each を使用したタグの中では、ローカル変数が使用できます。この場合は item がローカル変数になります。
+                固定URLへのアクセスであれば、わざわざThymeleafの構文を使用する必要はありません。
+                ですが、パラメータを含めるなど動的にしたい時は次のように記述します。
+                <pre>&lt;form action="@{/tweet}" method="post"&gt;...&lt;/form&gt;</pre>
             </div>
         </section>
     </section>
