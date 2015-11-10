@@ -29,13 +29,26 @@
         <li>つぶやこう！</li>
     </ol>
 
+    <section class="panel panel-success">
+        <div class="panel-heading">
+            Thymeleaf について
+        </div>
+        <div class="panel-body">
+            <p>このアプリケーションではテンプレートエンジンの Thymeleaf を使用しています。
+                ThymeleafはテンプレートとなるXHTMLファイルに独自の記述をすると自動的に埋めてくれます。
+                今回、Thymeleaf自体のくわしい説明は行いませんので、必要な記述はこの表示と同じように注釈で書いておきます。</p>
+
+            <p>くわしい説明が欲しい方は <a href="http://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf_ja.html">こちら</a>
+                を参考にしてください。(thanks @bufferings!)</p>
+        </div>
+    </section>
+
     <section>
         <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> こんにちは！</h2>
 
         <p>このページを表示……できてますね！おめでとうございます！！</p>
 
-        <p>
-            SpringBootというフレームワークを使用した、Webアプリケーションが起動できました。
+        <p> SpringBootというフレームワークを使用した、Webアプリケーションが起動できました。
             このページもアプリケーションの一部だったりします。
             本ワークショップは、このアプリケーションに機能を追加していく形で行います。
         </p>
@@ -63,12 +76,16 @@
                 <li>Thymeleaf で値を表示する方法</li>
             </ul>
         </section>
-        <section>
-            <h4>Snippet</h4>
-            Thymeleafを使う時のHTMLタグ
-            <pre>&lt;html xmlns:th="http://www.thymeleaf.org"&gt;</pre>
-            Thymeleafで値を表示する
-            <pre>&lt;span th:text="${name}"&gt;ここがnameの値に変わります&lt;/span&gt;</pre>
+        <section class="panel panel-success">
+            <div class="panel-heading">
+                Thymeleafを使う準備と、変数の埋め込み
+            </div>
+            <div class="panel-body">
+                Thymeleafを使うことを伝えるために、HTMLタグを次のように変更してください。
+                <pre>&lt;html xmlns:th="http://www.thymeleaf.org"&gt;</pre>
+                Javaで設定した属性値を表示する際は次のようにします。
+                <pre>&lt;span th:text="${name}"&gt;ここがnameの値に変わります&lt;/span&gt;</pre>
+            </div>
         </section>
     </section>
     <hr/>
@@ -93,10 +110,15 @@
                 <li>Thymeleaf で複数件を扱う方法</li>
             </ul>
         </section>
-        <section>
-            <h4>Snippet</h4>
-            Thymeleafで複数件を扱う
-            <pre>&lt;p th:each="item : ${list}"&gt;...&lt;/p&gt;</pre>
+        <section class="panel panel-success">
+            <div class="panel-heading">
+                Thymeleafで複数件を扱う
+            </div>
+            <div class="panel-body">
+                java.util.List のように複数件を扱う場合は th:each を使用します。次の場合、Pタグがリストの件数分繰り返されます。
+                <pre>&lt;p th:each="item : ${list}"&gt;...&lt;/p&gt;</pre>
+                th:each を使用したタグの中では、ローカル変数が使用できます。この場合は item がローカル変数になります。
+            </div>
         </section>
     </section>
     <hr/>
@@ -104,7 +126,8 @@
         <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> APIをよびだそう！</h2>
         いよいよAPI呼び出しです。
         APIサーバーからタイムラインを取得して、画面に表示します。<br/>
-        APIサーバーからはJSONが返されます。<a href="#" th:href="${@environment.getProperty('javajok.api.url')} + '/timeline'">直接表示してみる</a>とイメージしやすいかもしれません。
+        APIサーバーからはJSONが返されます。
+        <a href="#" th:href="${@environment.getProperty('javajok.api.url')} + '/timeline'">直接表示してみる</a>とイメージしやすいかもしれません。
         <section>
             <h4>作成するもの</h4>
             <ul>
@@ -133,6 +156,17 @@
                 <li>APIにパラメータを渡す方法</li>
                 <li>リダイレクト</li>
             </ul>
+        </section>
+        <section class="panel panel-success">
+            <div class="panel-heading">
+                ThymeleafでURLを指定する
+            </div>
+            <div class="panel-body">
+                URLを指定する場合、絶対URLや相対URLで、それが変更されないのであればわざわざThymeleafを使用する必要はありません。通常のHTMLのように書いておけば良いです。
+                ですが、
+                <pre>&lt;form action :each="item : ${list}"&gt;...&lt;/p&gt;</pre>
+                th:each を使用したタグの中では、ローカル変数が使用できます。この場合は item がローカル変数になります。
+            </div>
         </section>
     </section>
     <section class="panel panel-info">
