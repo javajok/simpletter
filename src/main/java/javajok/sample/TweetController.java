@@ -8,7 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 
 /**
  * 画面からのリクエストを処理してAPIサーバーと通信したり、遷移先を指定したりするコントローラーです。
@@ -135,5 +141,28 @@ public class TweetController {
     @ResponseBody
     public byte[] icon(@PathVariable("userId") String userId) {
         return new RestTemplate().getForObject(apiUrl + "/icon/" + userId, byte[].class);
+    }
+
+    /**
+     * 例外ハンドリングを行います。
+     *
+     * @return 画面に表示する情報
+     */
+    @ExceptionHandler(ResourceAccessException.class)
+    public ModelAndView handleConnectException(Exception e) {
+        logger.warn("接続失敗したのを画面に表示しますよ", e);
+
+        Tweet tweet = new Tweet();
+        tweet.userId = "通知くん";
+        tweet.text = "APIサーバーへのアクセスに失敗しちゃいました。実に残念です。なお、接続しようとしたURLは " + apiUrl + " です。";
+        tweet.timestamp = LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+
+        Timeline timeline = new Timeline();
+        timeline.tweets = Collections.singletonList(tweet);
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject(timeline);
+        modelAndView.setViewName("sample/timeline");
+        return modelAndView;
     }
 }

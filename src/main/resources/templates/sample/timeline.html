@@ -40,7 +40,7 @@
         </div>
         <div class="panel-body">
             <div class="col-md-1">
-                <img src="../javajok.png" width="50" height="50" th:src="@{'/sample/icon/' + ${tweet.userId}}"/>
+                <img src="../javajok.png" width="50" height="50" th:if="${tweet.id}" th:src="@{'/sample/icon/' + ${tweet.userId}}"/>
             </div>
             <div class="col-md-11">
                 <span th:text="${tweet.text}">やあ！ほげくんだよ！！</span>
