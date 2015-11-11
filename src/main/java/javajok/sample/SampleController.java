@@ -27,12 +27,12 @@ import java.util.Collections;
  */
 @Controller
 @RequestMapping("/sample")
-public class TweetController {
+public class SampleController {
 
     /**
-     * ログを出力するためのライブラリの準備です。
+     * ログを出力するために、ロガーのインスタンスを取得しておきます。
      */
-    private static final Logger logger = LoggerFactory.getLogger(TweetController.class);
+    private static final Logger logger = LoggerFactory.getLogger(SampleController.class);
 
     /**
      * このアプリの通信先となるAPIのURLです。
