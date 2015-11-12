@@ -4,13 +4,40 @@ https://github.com/javajok/simpletter-api と通信することでTwitter風味�
 
 ## Eclipse への取り込み
 
-以下のコマンドを実行してください。
+コマンドプロンプト(ターミナル)を開いて以下のコマンドを実行してください。
 
 ```
 ./gradlew eclipse
 ```
 
-Eclipseの設定ファイルが作成され、プロジェクトのインポートができるようになります。
+初めて `./gradlew` を実行するとコマンドプロンプト(ターミナル)に次のようなログが出力されます。
+
+```
+Downloading https://services.gradle.org/distributions/gradle-2.7-bin.zip
+........................................................................
+```
+
+これはGradleというツールのダウンロードが行われている事を表しています。
+Gradleのダウンロードには少し時間がかかりますのでしばらくお待ちください。
+
+Gradleのダウンロードが終わると次はSimpletterに必要なライブラリのダウンロードが始まります。
+
+最終的に次のようなログが出力されたら完了です。
+
+```
+BUILD SUCCESSFUL
+
+Total time: 6 mins 2.326 secs
+```
+
+`./gradlew eclipse` コマンドが完了したらEclipseにインポートしましょう。
+
+1. Eclipseのメニューから *Import* を選択します
+2. *Existing Projects into Workspace* を選択します(Eclipseを日本語化している場合は *既存プロジェクトをワークスペースへ* といった名前になっているかもしれません)
+3. *Select root directory* にSimpletterのディレクトリを指定します
+4. *Projects* にSimpletterが表示されている事が確認できたら *Finish* を押してください
+
+以上でEclipseへのインポートは完了です。
 
 ## アプリケーションの設定
 
