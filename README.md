@@ -60,14 +60,14 @@ Total time: 6 mins 2.326 secs
 
 Webブラウザで次のURLを開いてみてください。
 
-Browse http://localhost:8080
+* http://localhost:8080
 
 ワークショップの段取りを書いた画面が表示されます。
 動作確認も兼ねています。
 
 ## サンプルの動かし方
 
-Browse http://localhost:8080/sample
+* http://localhost:8080/sample
 
 サンプルタイムライン表示も投稿も全部この画面です。
 投稿はユーザーID固定です。 `javajok.userId` のユーザーをサーバー側で登録してやってください。
