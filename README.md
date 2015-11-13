@@ -81,7 +81,7 @@ Browse http://localhost:8080/sample
 {"tweets":[{"id":"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","text":"ついーとだよー","timestamp":"2015-10-20T12:34:56.789","userId":"xxxxxxx"}, ...]}
 ```
 
-レスポンスは `Timeline<Tweet>` にマッピングします。
+レスポンスは `Timeline` にマッピングします。
 コードを単純にするために、クラス名/フィールド名とjsonやhtmlを直接あてていますので、変更するときは一緒にしなきゃです。
 
 ## ライセンス
