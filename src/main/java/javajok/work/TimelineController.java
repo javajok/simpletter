@@ -1,9 +1,11 @@
 package javajok.work;
 
+import javajok.sample.Timeline;
 import javajok.sample.Tweet;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 
@@ -12,19 +14,10 @@ public class TimelineController {
 
     @RequestMapping("/timeline")
     public String timeline(Model model) {
-        Tweet tweet = new Tweet();
-        tweet.userId = "hogehoge";
-        tweet.text = "練習用だよ";
+        Timeline timeline = new RestTemplate().getForObject("http://localhost:8090/timeline",
+                Timeline.class);
 
-        Tweet tweet2 = new Tweet();
-        tweet2.userId = "fugafuga";
-        tweet2.text = "練習用2";
-
-        ArrayList<Object> timeline = new ArrayList<>();
-        timeline.add(tweet);
-        timeline.add(tweet2);
-
-        model.addAttribute("timeline", timeline);
+        model.addAttribute("timeline", timeline.tweets);
 
         return "timeline";
     }
