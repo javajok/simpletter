@@ -4,6 +4,10 @@
     <title>あぷりけーしょん</title>
 </head>
 <body>
+<form action="/tweet">
+    <input type="text" name="text"/>
+    <input type="submit" value="つぶやく"/>
+</form>
 <div th:each="tweet : ${timeline}">
     <b th:text="${tweet.userId}">ゆーざー</b> : <span th:text="${tweet.text}">めっせーじ</span>
 </div>
