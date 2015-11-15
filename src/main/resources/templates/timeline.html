@@ -4,7 +4,7 @@
     <title>あぷりけーしょん</title>
 </head>
 <body>
-<div>
+<div th:each="tweet : ${timeline}">
     <b th:text="${tweet.userId}">ゆーざー</b> : <span th:text="${tweet.text}">めっせーじ</span>
 </div>
 </body>
