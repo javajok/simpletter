@@ -3,7 +3,7 @@ server:
     port: 8080
 javajok:
     userId: hogekun
-    api.url: http://localhost:8090
+    api.url: http://simpletter.herokuapp.com
 spring:
   thymeleaf:
     cache: false
