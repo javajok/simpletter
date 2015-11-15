@@ -1,9 +1,9 @@
 <!doctype html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>こんにちは！</title>
 </head>
 <body>
-あなたの予想に反してこのページが見えているでしょうか
+<span th:text="${name}">あなた</span>の予想に反してこのページが見えているでしょうか
 </body>
 </html>
