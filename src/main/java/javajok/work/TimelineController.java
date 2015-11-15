@@ -21,4 +21,9 @@ public class TimelineController {
 
         return "timeline";
     }
+
+    @RequestMapping("/tweet")
+    public String tweet() {
+        return "redirect:/timeline";
+    }
 }
