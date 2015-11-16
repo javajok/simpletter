@@ -1,5 +1,7 @@
 package javajok.sample;
 
+import java.time.LocalDateTime;
+
 /**
  * 一件のツイートです。
  *
@@ -9,7 +11,7 @@ public class Tweet {
 
     public String id;
     public String text;
-    public String timestamp;
+    public LocalDateTime timestamp;
     public String userId;
 
     @Override

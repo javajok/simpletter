@@ -27,4 +27,5 @@ repositories {
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-web"
     compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+    compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
 }

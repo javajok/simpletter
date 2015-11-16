@@ -13,7 +13,6 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 
 /**
@@ -155,7 +154,7 @@ public class SampleController {
         Tweet tweet = new Tweet();
         tweet.userId = "通知くん";
         tweet.text = "APIサーバーへのアクセスに失敗しちゃいました。実に残念です。なお、接続しようとしたURLは " + apiUrl + " です。";
-        tweet.timestamp = LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        tweet.timestamp = LocalDateTime.now();
 
         Timeline timeline = new Timeline();
         timeline.tweets = Collections.singletonList(tweet);
